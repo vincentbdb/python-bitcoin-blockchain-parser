@@ -22,11 +22,7 @@ try:
     print("*******************************同步文件--开始")
     now = time.time()
     for file_name in os.listdir(file_path):
-        #modify_time =  time.strftime("%Y-%m-%d %X", time.localtime(os.stat(file_path + file_name).st_mtime))
-        modify_time = os.stat(file_path + file_name).st_mtime
-        delta = now - modify_time
-        #print(file_name + ":" + str(modify_time) +"\t" + str(now) + "\t" + str(int(delta)))
-        if int(delta) < 600 and "blk" in file_name:
+        if "blk013" in file_name:
             sftp.put(file_path + file_name, server_path + file_name)
             print("已同步本地文件： \"" + file_path + file_name + "\"  到服务器路径：\"" + server_path + file_name + "\"")
             sync_file_count += 1

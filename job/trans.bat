@@ -1,0 +1,1 @@
+python trans.py
